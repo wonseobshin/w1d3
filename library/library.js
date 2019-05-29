@@ -23,11 +23,13 @@ var library = {
              }
 }
 
-// FUNCTIONS TO IMPLEMENT:
+/*
+FUNCTIONS TO IMPLEMENT:
 
-// prints a list of all playlists, in the form:
-// p01: Coding Music - 2 tracks
-// p02: Other Playlist - 1 tracks
+prints a list of all playlists, in the form:
+p01: Coding Music - 2 tracks
+p02: Other Playlist - 1 tracks
+*/
 
 var  printPlaylists = function () {
   for(var p in library.playlists){
@@ -56,7 +58,18 @@ var printTracks = function () {
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 
 var printPlaylist = function (playlistId) {
-
+  console.log(playlistId,':',library.playlists[playlistId].name,
+  '-', library.playlists[playlistId]['tracks'].length, 'tracks');
+  for(var t in library.playlists[playlistId].tracks){
+  //  console.log(t);
+    var tId = library.playlists[playlistId].tracks[t];
+    // console.log(tId);
+    console.log(library.playlists[playlistId].tracks[t],':',
+      library.tracks[tId].name, 'by',
+      library.tracks[tId].artist, '(',
+      library.tracks[tId].album, ')');
+    // console.log(library.playlists[playlistId])
+  }
 }
 
 
@@ -99,4 +112,4 @@ var printSearchResults = function(query) {
 
 }
 
-printTracks();
+printPlaylist('p01');
