@@ -105,14 +105,22 @@ var addTrack = function (name, artist, album) {
   library.tracks[tId].name = name;
   library.tracks[tId].artist = artist;
   library.tracks[tId].album = album;
-
 }
 
 
 // adds a playlist to the library
 
 var addPlaylist = function (name) {
+  var pId = uid();
 
+  library.playlists[pId] = {
+    id: '',
+    name: '',
+    tracks: []
+  }
+
+  library.playlists[pId].id = pId;
+  library.playlists[pId].name = name;
 }
 
 
@@ -126,7 +134,7 @@ var printSearchResults = function(query) {
 
 }
 
-addTrack('song', 'won', 'best alb');
+addPlaylist('best pl');
 // addTrackToPlaylist('t03','p01');
-printTracks();
+printPlaylists();
 // console.log(uid());
