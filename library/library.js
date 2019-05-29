@@ -47,7 +47,7 @@ var  printPlaylists = function () {
 
 var printTracks = function () {
   for(var t in library.tracks){
-    console.log(t,":",library.tracks[t]['name'],"by",library.tracks[t]['artist'].length,'(',library.tracks[t]['album'],')');
+    console.log(t,":",library.tracks[t]['name'],"by",library.tracks[t]['artist'],'(',library.tracks[t]['album'],')');
   }
 }
 
@@ -76,7 +76,7 @@ var printPlaylist = function (playlistId) {
 // adds an existing track to an existing playlist
 
 var addTrackToPlaylist = function (trackId, playlistId) {
-
+  library.playlists[playlistId].tracks.push(trackId);
 }
 
 
@@ -91,6 +91,20 @@ var uid = function() {
 // adds a track to the library
 
 var addTrack = function (name, artist, album) {
+  var tId = uid();
+  // console.log(typeof(tId));
+
+  library.tracks[tId] = {
+    id : '',
+    name : '',
+    artist : '',
+    album : ''
+  }
+  // console.log(typeof(library.tracks[tId]));
+  library.tracks[tId].id = tId;
+  library.tracks[tId].name = name;
+  library.tracks[tId].artist = artist;
+  library.tracks[tId].album = album;
 
 }
 
@@ -112,4 +126,7 @@ var printSearchResults = function(query) {
 
 }
 
-printPlaylist('p01');
+addTrack('song', 'won', 'best alb');
+// addTrackToPlaylist('t03','p01');
+printTracks();
+// console.log(uid());
