@@ -75,7 +75,42 @@ var library = {
 
               this.playlists[pId].id = pId;
               this.playlists[pId].name = name;
-              }
+              },
+  printSearchResults:  function(query){
+                        // console.log(typeof(query));
+                        var str = query.toUpperCase().toLowerCase();
+                        var foo
+                        for(t in this.tracks){
+                          // console.log(typeof(t));
+                          if(this.tracks[t].id.search(str) !== -1){
+                            console.log(this.tracks[t].id.search(str));
+                            foo = this.tracks[t]
+                            // console.log(foo);
+                            return;
+                          };
+                          if(this.tracks[t].name.search(str) !== 1){
+                            console.log(this.tracks[t].id.search(str));
+
+                            foo = this.tracks[t]
+                            // console.log(foo);
+                            return;
+                          };
+                          if(this.tracks[t].artist.search(str) !== 1){
+                            console.log(this.tracks[t].id.search(str));
+
+                            foo = this.tracks[t]
+                            // console.log(foo);
+                            return;
+                          };
+                          if(this.tracks[t].album.search(str) !== 1){
+                            console.log(this.tracks[t].id.search(str));
+
+                            foo = this.tracks[t]
+                            // console.log(foo);
+                            return;
+                          };
+                        }
+                      }
 
 }
 
@@ -188,7 +223,9 @@ var printSearchResults = function(query) {
 
 }
 
-library.addPlaylist('best pl');
-// addTrackToPlaylist('t03','p01');
-library.printPlaylists();
+// library.addPlaylist('best pl');
+// // addTrackToPlaylist('t03','p01');
+// library.printPlaylists();
 // console.log(uid());
+
+library.printSearchResults('WWDC 2003');
